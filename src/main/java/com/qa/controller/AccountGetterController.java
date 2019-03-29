@@ -1,19 +1,18 @@
 package com.qa.controller;
 
+import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.entities.Account;
 import com.qa.repository.AccountRepository;
-@Controller
-@RequestMapping
+@RestController
 public class AccountGetterController {
 	
 	AccountRepository repo;
@@ -32,9 +31,9 @@ public class AccountGetterController {
 	public Optional<Account> getAccount(@RequestBody Long accountId){
 		return repo.findById(accountId);
 	}
-	@GetMapping("/getAllAccounts")
-	public Iterable<Account> getAllAccounts(){
-		return repo.findAll();
+	@GetMapping("/getterAllAccounts")
+	public List<Account> getAllAccounts(){
+		return (List<Account>) repo.findAll();
 	}
 	@PutMapping("/updateAccount")
 	public String updateAccount(@RequestBody Account account) {
