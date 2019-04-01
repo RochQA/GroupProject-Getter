@@ -7,4 +7,4 @@ RUN mvn clean package
 
 FROM openjdk:8
 COPY --from=build /build/target/Getter-0.0.1-SNAPSHOT.jar Getter.jar
-ENTRYPOINT ["java","-jar","Getter-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","Getter.jar"]
