@@ -1,33 +1,36 @@
 package com.qa.entities;
 
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Trainer {
-
-	@Id
+	
 	private Long id;
 	
-	private String name;
+	private String firstName;
 	
-	@OneToMany
-	@JoinColumn(name = "trainerId", nullable = false, insertable = false, updatable = false)
-	private List<Plan> plans;
+	private String lastName;
 	
-	public Trainer() {
-		
+	private String displayName;
+	
+	private String email;
+
+	public String getEmail() {
+		return email;
 	}
 
-	public Trainer(Long id, String name) {
-		
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	
+
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -36,19 +39,21 @@ public class Trainer {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public List<Plan> getPlans() {
-		return plans;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public void setPlans(List<Plan> plans) {
-		this.plans = plans;
+	public String getLastName() {
+		return lastName;
 	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
 }
