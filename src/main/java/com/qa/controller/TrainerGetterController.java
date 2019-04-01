@@ -25,8 +25,7 @@ public class TrainerGetterController {
 	
 	@PostMapping("/createTrainer")
 	public Long addNewTrainer(@RequestBody Trainer trainer) {
-		repo.save(trainer);
-		return trainer.getId();
+		return repo.save(trainer).getId();
 	}
 	
 	@GetMapping("/getTrainer")
