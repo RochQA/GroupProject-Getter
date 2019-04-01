@@ -37,8 +37,8 @@ public class PlanControllerTests {
 	public void setup() {
 		this.plan = new Plan();
 		this.plan2 = new Plan();
-		plan.setPlanId(1L);
-		plan2.setPlanId(2L);
+//		plan.setPlanId(1L);
+//		plan2.setPlanId(2L);
 		planList = new ArrayList<Plan>();
 		planList.add(plan);
 		planList.add(plan2);

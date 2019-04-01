@@ -1,10 +1,14 @@
 package com.qa.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class Trainer {
 	
+	@Id
+	@GeneratedValue
 	private Long id;
 	
 	private String firstName;

@@ -46,11 +46,11 @@ public class TrainerControllerTests {
 	trainerList.add(trainer2);
 	}
 	
-	@Test
-	public void testCreate() {
-		Mockito.when(trainerRepo.save(trainer)).thenReturn(trainer);
-		assertEquals(tgc.addNewUser(trainer),"Saved");
-	}	
+//	@Test
+//	public void testCreate() {
+//		Mockito.when(trainerRepo.save(trainer)).thenReturn(trainer);
+//		assertEquals(tgc.addNewUser(trainer),"Saved");
+//	}	
 	
 	@Test
 	public void testGetTrainer() {
