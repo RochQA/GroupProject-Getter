@@ -27,7 +27,7 @@ public class AccountGetterController {
 		return "Saved";
 	}
 	
-	@GetMapping("/getAccount")
+	@PutMapping("/getAccount")
 	public Optional<Account> getAccount(@RequestBody Long accountId){
 		return repo.findById(accountId);
 	}

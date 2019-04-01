@@ -1,5 +1,6 @@
 package com.qa.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
@@ -9,11 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.entities.Trainer;
 import com.qa.repository.TrainerRepository;
-@Controller
-@RequestMapping
+@RestController
 public class TrainerGetterController {
 	
 	TrainerRepository repo;
@@ -33,8 +34,8 @@ public class TrainerGetterController {
 		return repo.findById(trainerId);
 	}
 	@GetMapping("/getAllTrainers")
-	public Iterable<Trainer> getAllTrainers(){
-		return repo.findAll();
+	public List<Trainer> getAllTrainers(){
+		return (List<Trainer>) repo.findAll();
 	}
 	@PutMapping("/updateTrainer")
 	public String updateTrainer(@RequestBody Trainer trainer) {

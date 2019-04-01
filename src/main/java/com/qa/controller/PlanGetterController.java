@@ -1,5 +1,6 @@
 package com.qa.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.qa.entities.Plan;
 import com.qa.repository.PlanRepository;
@@ -34,8 +34,8 @@ public class PlanGetterController {
 		return repo.findById(planId);
 	}
 	@GetMapping("/getAllPlans")
-	public Iterable<Plan> getAllPlans(){
-		return repo.findAll();
+	public List<Plan> getAllPlans(){
+		return (List<Plan>) repo.findAll();
 	}
 	@PutMapping("/updatePlan")
 	public String updatePlan(@RequestBody Plan plan) {
