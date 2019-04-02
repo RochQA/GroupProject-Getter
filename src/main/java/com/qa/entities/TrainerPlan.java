@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Plan {
+public class TrainerPlan {
 	
 	@Id
 	@GeneratedValue(strategy =  GenerationType.AUTO, generator="native")
@@ -29,60 +29,60 @@ public class Plan {
 	
 	private int roomNumber;
 
-	public Long getId() {
-		return Id;
-	}
-
-	public void setId(Long id) {
-		Id = id;
-	}
-
-	public String getTopic() {
-		return topic;
-	}
-
-	public void setTopic(String topic) {
-		this.topic = topic;
-	}
-
-	public String getTrainerName() {
-		return trainerName;
-	}
-
-	public void setTrainerName(String trainerName) {
-		this.trainerName = trainerName;
-	}
-
-	public String getTraineeGroup() {
-		return traineeGroup;
-	}
-
-	public void setTraineeGroup(String traineeGroup) {
-		this.traineeGroup = traineeGroup;
-	}
-
-	public Date getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-
 	public Date getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
+	public Long getId() {
+		return Id;
 	}
 
 	public int getRoomNumber() {
 		return roomNumber;
 	}
 
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public String getTopic() {
+		return topic;
+	}
+
+	public String getTraineeGroup() {
+		return traineeGroup;
+	}
+
+	public String getTrainerName() {
+		return trainerName;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
+
 	public void setRoomNumber(int roomNumber) {
 		this.roomNumber = roomNumber;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
+
+	public void setTraineeGroup(String traineeGroup) {
+		this.traineeGroup = traineeGroup;
+	}
+
+	public void setTrainerName(String trainerName) {
+		this.trainerName = trainerName;
 	}
 	
 	
