@@ -22,26 +22,26 @@ public class AccountGetterController {
 		this.repo = repo;
 	}
 	
-	@PostMapping("/createAccount")
+	@PostMapping(Constants.CREATE_ACCOUNT)
 	public String addNewUser(@RequestBody Account account) {
 		repo.save(account);
 		return Constants.SAVED;
 	}
 	
-	@PutMapping("/getAccount")
+	@PutMapping(Constants.GET_ACCOUNT)
 	public Optional<Account> getAccount(@RequestBody Long accountId){
 		return repo.findById(accountId);
 	}
-	@GetMapping("/getterAllAccounts")
+	@GetMapping(Constants.GET_ALL_ACCOUNTS)
 	public List<Account> getAllAccounts(){
 		return (List<Account>) repo.findAll();
 	}
-	@PutMapping("/updateAccount")
+	@PutMapping(Constants.UPDATE_ACCOUNT)
 	public String updateAccount(@RequestBody Account account) {
 		repo.save(account);
 		return Constants.UPDATED;
 	}
-	@DeleteMapping("/deleteAccount")
+	@DeleteMapping(Constants.DELETE_ACCOUNT)
 	public String deleteAccount(@RequestBody Long accountId) {
 		repo.deleteById(accountId);
 		return Constants.DELETED;		

@@ -22,26 +22,26 @@ public class PlanGetterController {
 		this.repo = repo;
 	}
 	
-	@PostMapping("/createPlan")
+	@PostMapping(Constants.CREATE_PLAN)
 	public String addNewUser(@RequestBody TrainerPlan plan) {
 		repo.save(plan);
 		return Constants.SAVED;
 	}
 	
-	@GetMapping("/getPlan")
+	@GetMapping(Constants.GET_PLAN)
 	public Optional<TrainerPlan> getPlan(@RequestBody Long planId){
 		return repo.findById(planId);
 	}
-	@GetMapping("/getAllPlans")
+	@GetMapping(Constants.GET_ALL_PLANS)
 	public List<TrainerPlan> getAllPlans(){
 		return (List<TrainerPlan>) repo.findAll();
 	}
-	@PutMapping("/updatePlan")
+	@PutMapping(Constants.UPDATE_PLAN)
 	public String updatePlan(@RequestBody TrainerPlan plan) {
 		repo.save(plan);
 		return Constants.UPDATED;
 	}
-	@DeleteMapping("/deletePlan")
+	@DeleteMapping(Constants.DELETE_PLAN)
 	public String deletePlan(@RequestBody Long planId) {
 		repo.deleteById(planId);
 		return Constants.DELETED;		

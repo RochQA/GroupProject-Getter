@@ -22,25 +22,25 @@ public class TrainerGetterController {
 		this.repo = repo;
 	}
 	
-	@PostMapping("/createTrainer")
+	@PostMapping(Constants.CREATE_TRAINER)
 	public Long addNewTrainer(@RequestBody Trainer trainer) {
 		return repo.save(trainer).getId();
 	}
 	
-	@GetMapping("/getTrainer")
+	@GetMapping(Constants.GET_TRAINER)
 	public Optional<Trainer> getTrainer(@RequestBody Long trainerId){
 		return repo.findById(trainerId);
 	}
-	@GetMapping("/getAllTrainers")
+	@GetMapping(Constants.GET_ALL_TRAINERS)
 	public List<Trainer> getAllTrainers(){
 		return (List<Trainer>) repo.findAll();
 	}
-	@PutMapping("/updateTrainer")
+	@PutMapping(Constants.UPDATE_TRAINER)
 	public String updateTrainer(@RequestBody Trainer trainer) {
 		repo.save(trainer);
 		return Constants.UPDATED;
 	}
-	@DeleteMapping("/deleteTrainer")
+	@DeleteMapping(Constants.DELETE_TRAINER)
 	public String deleteTrainer(@RequestBody Long trainerId) {
 		repo.deleteById(trainerId);
 		return Constants.DELETED;		
