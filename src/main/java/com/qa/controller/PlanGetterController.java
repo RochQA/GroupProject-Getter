@@ -1,20 +1,19 @@
 package com.qa.controller;
 
+import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.qa.entities.Plan;
+import com.qa.entities.Constants;
+import com.qa.entities.TrainerPlan;
 import com.qa.repository.PlanRepository;
-@Controller
-@RequestMapping
+@RestController
 public class PlanGetterController {
 	
 	PlanRepository repo;
@@ -23,29 +22,28 @@ public class PlanGetterController {
 		this.repo = repo;
 	}
 	
-	@PostMapping("/createPlan")
-	public String addNewUser(@RequestBody Plan plan) {
+	@PostMapping(Constants.CREATE_PLAN)
+	public String addNewUser(@RequestBody TrainerPlan plan) {
 		repo.save(plan);
-		return "Saved";
+		return Constants.SAVED;
 	}
 	
-	@GetMapping("/getPlan")
-	public Optional<Plan> getPlan(@RequestBody Long planId){
+	@GetMapping(Constants.GET_PLAN)
+	public Optional<TrainerPlan> getPlan(@RequestBody Long planId){
 		return repo.findById(planId);
 	}
-	@GetMapping("/getAllPlans")
-	public Iterable<Plan> getAllPlans(){
-		return repo.findAll();
+	@GetMapping(Constants.GET_ALL_PLANS)
+	public List<TrainerPlan> getAllPlans(){
+		return (List<TrainerPlan>) repo.findAll();
 	}
-	@PutMapping("/updatePlan")
-	public String updatePlan(@RequestBody Plan plan) {
+	@PutMapping(Constants.UPDATE_PLAN)
+	public String updatePlan(@RequestBody TrainerPlan plan) {
 		repo.save(plan);
-		return "Updated";
+		return Constants.UPDATED;
 	}
-	@DeleteMapping("/deletePlan")
+	@DeleteMapping(Constants.DELETE_PLAN)
 	public String deletePlan(@RequestBody Long planId) {
 		repo.deleteById(planId);
-		return "deleted";		
+		return Constants.DELETED;		
 	}
-
 }

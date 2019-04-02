@@ -2,13 +2,17 @@ package com.qa.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Account {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy =  GenerationType.AUTO, generator="native")
+	@GenericGenerator(name="native", strategy ="native")
 	private Long id;
 
 	private String email;
@@ -17,7 +21,10 @@ public class Account {
 	
 	private Long trainerId;
 	
-	private String accountType;
+	private enum accountType{
+		ADMIN,
+		TRAINER
+	};
 	
 	public Long getId() {
 		return id;
@@ -51,13 +58,7 @@ public class Account {
 		this.trainerId = trainerId;
 	}
 
-	public String getAccountType() {
-		return accountType;
-	}
 
-	public void setAccountType(String accountType) {
-		this.accountType = accountType;
-	}
 	
 	
 	

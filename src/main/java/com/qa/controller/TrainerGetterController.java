@@ -1,19 +1,19 @@
 package com.qa.controller;
 
+import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.qa.entities.Constants;
 import com.qa.entities.Trainer;
 import com.qa.repository.TrainerRepository;
-@Controller
-@RequestMapping
+@RestController
 public class TrainerGetterController {
 	
 	TrainerRepository repo;
@@ -22,28 +22,27 @@ public class TrainerGetterController {
 		this.repo = repo;
 	}
 	
-	@PostMapping("/createTrainer")
+	@PostMapping(Constants.CREATE_TRAINER)
 	public Long addNewTrainer(@RequestBody Trainer trainer) {
-		repo.save(trainer);
-		return trainer.getId();
+		return repo.save(trainer).getId();
 	}
 	
-	@GetMapping("/getTrainer")
+	@GetMapping(Constants.GET_TRAINER)
 	public Optional<Trainer> getTrainer(@RequestBody Long trainerId){
 		return repo.findById(trainerId);
 	}
-	@GetMapping("/getAllTrainers")
-	public Iterable<Trainer> getAllTrainers(){
-		return repo.findAll();
+	@GetMapping(Constants.GET_ALL_TRAINERS)
+	public List<Trainer> getAllTrainers(){
+		return (List<Trainer>) repo.findAll();
 	}
-	@PutMapping("/updateTrainer")
+	@PutMapping(Constants.UPDATE_TRAINER)
 	public String updateTrainer(@RequestBody Trainer trainer) {
 		repo.save(trainer);
-		return "Updated";
+		return Constants.UPDATED;
 	}
-	@DeleteMapping("/deleteTrainer")
+	@DeleteMapping(Constants.DELETE_TRAINER)
 	public String deleteTrainer(@RequestBody Long trainerId) {
 		repo.deleteById(trainerId);
-		return "deleted";		
+		return Constants.DELETED;		
 	}
 }

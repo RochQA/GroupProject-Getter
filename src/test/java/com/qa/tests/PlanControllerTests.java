@@ -15,7 +15,7 @@ import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.qa.controller.PlanGetterController;
-import com.qa.entities.Plan;
+import com.qa.entities.TrainerPlan;
 import com.qa.repository.PlanRepository;
 
 @RunWith(org.mockito.runners.MockitoJUnitRunner.class)
@@ -28,18 +28,18 @@ public class PlanControllerTests {
 	@InjectMocks
 	private PlanGetterController pgc;
 	
-	private Plan plan;
-	private Plan plan2;
-	private Optional<Plan> op = Optional.empty();
-	private List<Plan> planList;
+	private TrainerPlan plan;
+	private TrainerPlan plan2;
+	private Optional<TrainerPlan> op = Optional.empty();
+	private List<TrainerPlan> planList;
 	
 	@Before
 	public void setup() {
-		this.plan = new Plan();
-		this.plan2 = new Plan();
+		this.plan = new TrainerPlan();
+		this.plan2 = new TrainerPlan();
 //		plan.setPlanId(1L);
 //		plan2.setPlanId(2L);
-		planList = new ArrayList<Plan>();
+		planList = new ArrayList<TrainerPlan>();
 		planList.add(plan);
 		planList.add(plan2);
 	}
