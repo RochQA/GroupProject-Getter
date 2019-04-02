@@ -27,7 +27,7 @@ public class TrainerPlan {
 	
 	private Date endDate;
 	
-	private int roomNumber;
+	private String room;
 
 	public Date getEndDate() {
 		return endDate;
@@ -37,8 +37,12 @@ public class TrainerPlan {
 		return Id;
 	}
 
-	public int getRoomNumber() {
-		return roomNumber;
+	public String getRoomNumber() {
+		return room;
+	}
+
+	public void setRoomNumber(String room) {
+		this.room = room;
 	}
 
 	public Date getStartDate() {
@@ -65,10 +69,7 @@ public class TrainerPlan {
 		Id = id;
 	}
 
-	public void setRoomNumber(int roomNumber) {
-		this.roomNumber = roomNumber;
-	}
-
+	
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
