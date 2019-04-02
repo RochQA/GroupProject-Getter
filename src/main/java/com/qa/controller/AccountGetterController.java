@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.entities.Account;
+import com.qa.entities.Constants;
 import com.qa.repository.AccountRepository;
 @RestController
 public class AccountGetterController {
@@ -24,7 +25,7 @@ public class AccountGetterController {
 	@PostMapping("/createAccount")
 	public String addNewUser(@RequestBody Account account) {
 		repo.save(account);
-		return "Saved";
+		return Constants.SAVED;
 	}
 	
 	@PutMapping("/getAccount")
@@ -38,11 +39,11 @@ public class AccountGetterController {
 	@PutMapping("/updateAccount")
 	public String updateAccount(@RequestBody Account account) {
 		repo.save(account);
-		return "Updated";
+		return Constants.UPDATED;
 	}
 	@DeleteMapping("/deleteAccount")
 	public String deleteAccount(@RequestBody Long accountId) {
 		repo.deleteById(accountId);
-		return "deleted";		
+		return Constants.DELETED;		
 	}
 }

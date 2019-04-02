@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.qa.entities.Constants;
 import com.qa.entities.TrainerPlan;
 import com.qa.repository.PlanRepository;
 @RestController
@@ -24,7 +25,7 @@ public class PlanGetterController {
 	@PostMapping("/createPlan")
 	public String addNewUser(@RequestBody TrainerPlan plan) {
 		repo.save(plan);
-		return "Saved";
+		return Constants.SAVED;
 	}
 	
 	@GetMapping("/getPlan")
@@ -38,11 +39,11 @@ public class PlanGetterController {
 	@PutMapping("/updatePlan")
 	public String updatePlan(@RequestBody TrainerPlan plan) {
 		repo.save(plan);
-		return "Updated";
+		return Constants.UPDATED;
 	}
 	@DeleteMapping("/deletePlan")
 	public String deletePlan(@RequestBody Long planId) {
 		repo.deleteById(planId);
-		return "deleted";		
+		return Constants.DELETED;		
 	}
 }
