@@ -46,12 +46,6 @@ public class TrainerControllerTests {
 	trainerList.add(trainer2);
 	}
 	
-//	@Test
-//	public void testCreate() {
-//		Mockito.when(trainerRepo.save(trainer)).thenReturn(trainer);
-//		assertEquals(tgc.addNewUser(trainer),"Saved");
-//	}	
-	
 	@Test
 	public void testGetTrainer() {
 		Mockito.when(trainerRepo.findById(1L)).thenReturn(op);
@@ -72,6 +66,6 @@ public class TrainerControllerTests {
 	
 	@Test
 	public void testDeleteTrainers() {
-		assertEquals(tgc.deleteTrainer(1L),"deleted");
+		assertEquals(tgc.deleteTrainer(1L),"Deleted");
 	}
 }

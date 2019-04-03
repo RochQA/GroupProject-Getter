@@ -72,6 +72,6 @@ public class AccountControllerTests {
 	
 	@Test
 	public void testDeleteAccounts() {
-		assertEquals(agc.deleteAccount(1L),"deleted");
+		assertEquals(agc.deleteAccount(1L),"Deleted");
 	}
 }

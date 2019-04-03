@@ -70,6 +70,6 @@ public class PlanControllerTests {
 	
 	@Test
 	public void testDeletePlans() {
-		assertEquals(pgc.deletePlan(1L),"deleted");
+		assertEquals(pgc.deletePlan(1L),"Deleted");
 	}
 }
