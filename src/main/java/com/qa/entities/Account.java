@@ -21,10 +21,16 @@ public class Account {
 	
 	private Long trainerId;
 	
-	private enum accountType{
-		ADMIN,
-		TRAINER
-	};
+	private Boolean admin;
+	
+	
+	public Boolean getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Boolean admin) {
+		this.admin = admin;
+	}
 	
 	public Long getId() {
 		return id;
